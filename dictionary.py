@@ -37,8 +37,10 @@ word = word.lower()
 output = search(word)
 
 if type(output) == list:
+    n = 1
     for item in output:
-        print(str(item))
+        print(str(n) + ") " + str(item))
+        n = n + 1
 
 else:
     print(output)
