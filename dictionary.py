@@ -13,6 +13,21 @@ def search(word):
     elif word.upper() in data:
         return data[word.upper()]
 
+    elif len(get_close_matches(word, data.keys())) > 0:
+        suggest = get_close_matches(word, data.keys())[0]
+        print("Did you mean %s?" % suggest)
+        y_n = input("Enter Y for yes and N for no: ")
+        y_n = y_n.upper()
+
+        if y_n == "Y":
+            return data[suggest]
+
+        elif y_n == "N":
+            return "There is no such word! Please check."
+
+        else:
+            return "Please enter Y or N only"
+
     else:
         return "There is no such word! Please check."
 
